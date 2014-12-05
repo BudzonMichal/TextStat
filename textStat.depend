@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1417795888 source:d:\budzik\proj\textstat\main.cpp
+	"textstat.h"
+
+1417783340 source:d:\budzik\proj\textstat\src\analyzer.cpp
+	"analyzer.h"
+
+1417782315 d:\budzik\proj\textstat\include\analyzer.h
+
+1417796516 source:d:\budzik\proj\textstat\src\interface.cpp
+	<new>
+	<iostream>
+	"interface.h"
+	"iowindows.h"
+
+1417796743 d:\budzik\proj\textstat\include\interface.h
+	"enums.h"
+
+1417782440 source:d:\budzik\proj\textstat\src\interfacewin.cpp
+	"interfaceWin.h"
+
+1417782265 d:\budzik\proj\textstat\include\interfacewin.h
+	<Interface.h>
+
+1417796336 source:d:\budzik\proj\textstat\src\textstat.cpp
+	<new>
+	"textstat.h"
+	"interface.h"
+	"storage.h"
+	"analyzer.h"
+
+1417789332 d:\budzik\proj\textstat\include\textstat.h
+	"enums.h"
+
+1417784267 source:d:\budzik\proj\textstat\src\filereader.cpp
+	"filereader.h"
+
+1417784266 d:\budzik\proj\textstat\include\filereader.h
+
+1417784311 source:d:\budzik\proj\textstat\src\item.cpp
+	"item.h"
+
+1417784311 d:\budzik\proj\textstat\include\item.h
+
+1417784294 source:d:\budzik\proj\textstat\src\storage.cpp
+	"storage.h"
+
+1417784294 d:\budzik\proj\textstat\include\storage.h
+
+1417787450 source:d:\budzik\proj\textstat\src\printstrategy.cpp
+	"printwin.h"
+
+1417787575 d:\budzik\proj\textstat\include\printwin.h
+	"printstrategy.h"
+
+1417787582 d:\budzik\proj\textstat\include\printstrategy.h
+
+1417787558 source:d:\budzik\proj\textstat\src\printwin.cpp
+	"printwin.h"
+
+1417790787 d:\budzik\proj\textstat\include\enums.h
+
+1417793633 source:d:\budzik\proj\textstat\src\iostrategy.cpp
+	"iostrategy.h"
+	<stdio.h>
+
+1417796187 d:\budzik\proj\textstat\include\iostrategy.h
+	<string>
+	"enums.h"
+
+1417796411 source:d:\budzik\proj\textstat\src\iowindows.cpp
+	"iowindows.h"
+	<iostream>
+
+1417796180 d:\budzik\proj\textstat\include\iowindows.h
+	"iostrategy.h"
+
