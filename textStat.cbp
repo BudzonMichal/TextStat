@@ -13,6 +13,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="D:/Budzik/proj/textStat/include" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,8 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="D:/Budzik/proj/textStat/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +36,26 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/analyzer.h" />
+		<Unit filename="include/enums.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="include/filereader.h" />
+		<Unit filename="include/interface.h" />
+		<Unit filename="include/iostrategy.h" />
+		<Unit filename="include/iowindows.h" />
+		<Unit filename="include/item.h" />
+		<Unit filename="include/storage.h" />
+		<Unit filename="include/textstat.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/analyzer.cpp" />
+		<Unit filename="src/filereader.cpp" />
+		<Unit filename="src/interface.cpp" />
+		<Unit filename="src/iostrategy.cpp" />
+		<Unit filename="src/iowindows.cpp" />
+		<Unit filename="src/item.cpp" />
+		<Unit filename="src/storage.cpp" />
+		<Unit filename="src/textstat.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

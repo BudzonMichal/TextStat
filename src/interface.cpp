@@ -2,6 +2,7 @@
 #include <iostream>
 #include "interface.h"
 #include "iowindows.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -9,7 +10,11 @@ Interface* Interface::ins = 0;
 
 Interface::Interface()
 {
-
+    menuText.push_back("\n***** MENU ******\n");
+    menuText.push_back("1. One \n");
+    menuText.push_back("2. Two \n");
+    menuText.push_back("3. Three \n");
+    menuText.push_back("***************\n\n");
 }
 
 Interface::~Interface()
@@ -42,17 +47,28 @@ err_t Interface::setStrategy()
     return ERR_OK;
 }
 
-int Interface::waitForPress()
+int Interface::loop()
 {
-    cout << "ad";
-    return ins->io->checkKey();
+    key_e button;
+
+    while(1){
+        button = ins->io->checkKey();
+        updateMenu(button);
+    }
+
+    return 0;
 }
 
-err_t Interface::menu()
+err_t Interface::startMenu()
 {
-    cout << "menu: interface\n";
-    cout << ins->io;
-    //io->menu();
+    ins->io->showMenu(&(ins->menuText));
+
+    return ERR_OK;
+}
+
+err_t Interface::updateMenu(key_e button)
+{
+    ins->io->updateMenu(button);
 
     return ERR_OK;
 }

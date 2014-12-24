@@ -1,4 +1,5 @@
 #include <new>
+#include <iostream>
 #include "textstat.h"
 #include "interface.h"
 #include "storage.h"
@@ -15,26 +16,19 @@ TextStat::~TextStat()
 }
 
 // Lazy Constructor
+
 err_t TextStat::start()
 {
-    int button;
     err_t err = ERR_OK;
 
     if(allocate() != ERR_OK) return ERR_MEMORY;
 
-    if(ui->menu()) return ERR_UI;
+    if(ui->startMenu() != ERR_OK) return ERR_UI;
 
-    while(1){
-        button = ui->waitForPress();
-        //ui->item(button);
-
-        if(button) break;
-    }
+    ui->loop();
 
     return err;
 }
-
-
 
 /******************************** PRIVATE FUNCTIONS ********************************/
 err_t TextStat::deallocate()
@@ -57,7 +51,7 @@ err_t TextStat::allocate()
     st = new (std::nothrow)Storage();
     an = new (std::nothrow)Analyzer();
 
-    if(!st || !an || err){
+    if(!st || !an || (err != ERR_OK)){
         deallocate();
         return ERR_MEMORY;
     }
