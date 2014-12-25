@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="D:/Budzik/proj/textStat/include" />
 					<Add directory="include" />
@@ -45,6 +46,7 @@
 		<Unit filename="include/iostrategy.h" />
 		<Unit filename="include/iowindows.h" />
 		<Unit filename="include/item.h" />
+		<Unit filename="include/menu.h" />
 		<Unit filename="include/storage.h" />
 		<Unit filename="include/textstat.h" />
 		<Unit filename="main.cpp" />
@@ -54,6 +56,7 @@
 		<Unit filename="src/iostrategy.cpp" />
 		<Unit filename="src/iowindows.cpp" />
 		<Unit filename="src/item.cpp" />
+		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/storage.cpp" />
 		<Unit filename="src/textstat.cpp" />
 		<Extensions>

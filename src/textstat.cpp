@@ -23,8 +23,6 @@ err_t TextStat::start()
 
     if(allocate() != ERR_OK) return ERR_MEMORY;
 
-    if(ui->startMenu() != ERR_OK) return ERR_UI;
-
     ui->loop();
 
     return err;

@@ -12,6 +12,8 @@ enum err_t{
 };
 
 typedef enum {
+    KEY_ENTER = 13,
+    KEY_ESCAPE = 27,
     KEY_LEFT = 200,
     KEY_RIGHT,
     KEY_UP,

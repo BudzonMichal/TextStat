@@ -2,6 +2,7 @@
 #define INTERFACE_H
 
 #include "enums.h"
+#include "menu.h"
 #include <string>
 #include <vector>
 
@@ -15,8 +16,6 @@ class Interface
         virtual ~Interface();
 
         int   loop();
-        err_t startMenu();
-        err_t updateMenu(key_e button);
         err_t item(int number);
 
     protected:
@@ -24,9 +23,9 @@ class Interface
         Interface();
         err_t setStrategy(); //unknown type of passed argument?
 
-        static Interface      *ins;
-        IOStrategy            *io = 0;
-        std::vector<std::string>   menuText;
+        static Interface *ins;
+        IOStrategy       *io = 0;
+        Menu             menu;
 };
 
 #endif // INTERFACE_H

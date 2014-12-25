@@ -14,14 +14,12 @@ class IOStrategy
         virtual ~IOStrategy();
 
         virtual key_e checkKey()          = 0;
-        virtual err_t showMenu(vector<string> *text) = 0;
-        virtual err_t updateMenu(key_e button) = 0;
-        virtual err_t print(char* str)    = 0;
+        virtual err_t print(const char* str)    = 0;
+        virtual err_t clearScreen()       = 0;
+
         virtual err_t print(int value);
         virtual err_t print(string str);
-    protected:
-        vector<string> *menuText;
-        int             menuPos;
+        virtual err_t showMenu(const string* txt);
     private:
 };
 

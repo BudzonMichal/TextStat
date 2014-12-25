@@ -10,11 +10,7 @@ Interface* Interface::ins = 0;
 
 Interface::Interface()
 {
-    menuText.push_back("\n***** MENU ******\n");
-    menuText.push_back("1. One \n");
-    menuText.push_back("2. Two \n");
-    menuText.push_back("3. Three \n");
-    menuText.push_back("***************\n\n");
+
 }
 
 Interface::~Interface()
@@ -43,7 +39,7 @@ err_t Interface::setStrategy()
     ins->io = new (std::nothrow)IOWindows(); // you can change strategy here
 
     if(!ins->io) return ERR_MEMORY;
-    cout << "strategy set\n";
+
     return ERR_OK;
 }
 
@@ -51,26 +47,19 @@ int Interface::loop()
 {
     key_e button;
 
+    if(ins == nullptr) return ERR_NULL;
+
+    ins->menu.reset();
+    ins->io->showMenu(ins->menu.getMenu());
+
     while(1){
         button = ins->io->checkKey();
-        updateMenu(button);
+        ins->menu.updateMenu(button);
+        if(ins->menu.getNum() == MAIN_MENU) ins->io->showMenu(ins->menu.getMenu());
+        else ins->io->clearScreen();
     }
 
     return 0;
-}
-
-err_t Interface::startMenu()
-{
-    ins->io->showMenu(&(ins->menuText));
-
-    return ERR_OK;
-}
-
-err_t Interface::updateMenu(key_e button)
-{
-    ins->io->updateMenu(button);
-
-    return ERR_OK;
 }
 
 err_t Interface::item(int number)

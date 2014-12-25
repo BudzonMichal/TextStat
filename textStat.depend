@@ -7,15 +7,16 @@
 
 1417782315 d:\budzik\proj\textstat\include\analyzer.h
 
-1419430851 source:d:\budzik\proj\textstat\src\interface.cpp
+1419544423 source:d:\budzik\proj\textstat\src\interface.cpp
 	<new>
 	<iostream>
 	"interface.h"
 	"iowindows.h"
 	<stdlib.h>
 
-1419430455 d:\budzik\proj\textstat\include\interface.h
+1419542125 d:\budzik\proj\textstat\include\interface.h
 	"enums.h"
+	"menu.h"
 	<string>
 	<vector>
 
@@ -25,7 +26,7 @@
 1417782265 d:\budzik\proj\textstat\include\interfacewin.h
 	<Interface.h>
 
-1419427634 source:d:\budzik\proj\textstat\src\textstat.cpp
+1419542139 source:d:\budzik\proj\textstat\src\textstat.cpp
 	<new>
 	<iostream>
 	"textstat.h"
@@ -62,25 +63,33 @@
 1417787558 source:d:\budzik\proj\textstat\src\printwin.cpp
 	"printwin.h"
 
-1419430666 d:\budzik\proj\textstat\include\enums.h
+1419538580 d:\budzik\proj\textstat\include\enums.h
 
-1417793633 source:d:\budzik\proj\textstat\src\iostrategy.cpp
+1419543194 source:d:\budzik\proj\textstat\src\iostrategy.cpp
 	"iostrategy.h"
 	<stdio.h>
 
-1419430161 d:\budzik\proj\textstat\include\iostrategy.h
+1419543215 d:\budzik\proj\textstat\include\iostrategy.h
 	<string>
 	"enums.h"
 	<vector>
 
-1419430680 source:d:\budzik\proj\textstat\src\iowindows.cpp
+1419543180 source:d:\budzik\proj\textstat\src\iowindows.cpp
 	"iowindows.h"
 	<stdio.h>
 	<conio.h>
 	<iostream>
 	<stdlib.h>
 
-1419430275 d:\budzik\proj\textstat\include\iowindows.h
+1419543204 d:\budzik\proj\textstat\include\iowindows.h
 	"iostrategy.h"
 	"enums.h"
+
+1419544256 d:\budzik\proj\textstat\include\menu.h
+	<vector>
+	<string>
+	"enums.h"
+
+1419544563 source:d:\budzik\proj\textstat\src\menu.cpp
+	"menu.h"
 
