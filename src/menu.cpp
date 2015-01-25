@@ -76,7 +76,7 @@ const string* Menu::getMenuText()
 {
     currentMenu = "";
 
-    if( menuText[menuType].size() == 0) return nullptr;
+    if( menuText[menuType].size() == 0) return &currentMenu;
 
     currentMenu = " ________________________________ \n\n";
 

@@ -97,7 +97,7 @@
 	<string>
 	"enums.h"
 
-1422211876 source:d:\budzik\proj\textstat\src\menu.cpp
+1422213229 source:d:\budzik\proj\textstat\src\menu.cpp
 	"menu.h"
 
 1422211970 d:\budzik\proj\textstat\include\ioaccess.h
@@ -105,7 +105,7 @@
 	"enums.h"
 	<vector>
 
-1422212014 source:d:\budzik\proj\textstat\src\ioaccess.cpp
+1422213049 source:d:\budzik\proj\textstat\src\ioaccess.cpp
 	"ioaccess.h"
 	<stdio.h>
 
