@@ -9,7 +9,7 @@
 	<string>
 	"enums.h"
 
-1422211907 source:d:\budzik\proj\textstat\src\interface.cpp
+1422213976 source:d:\budzik\proj\textstat\src\interface.cpp
 	<new>
 	<iostream>
 	"interface.h"
@@ -17,7 +17,7 @@
 	<stdlib.h>
 	<string.h>
 
-1422209171 d:\budzik\proj\textstat\include\interface.h
+1422213742 d:\budzik\proj\textstat\include\interface.h
 	"enums.h"
 	"menu.h"
 	<string>
@@ -29,7 +29,7 @@
 1417782265 d:\budzik\proj\textstat\include\interfacewin.h
 	<Interface.h>
 
-1422208580 source:d:\budzik\proj\textstat\src\textstat.cpp
+1422214389 source:d:\budzik\proj\textstat\src\textstat.cpp
 	<new>
 	<iostream>
 	"textstat.h"
@@ -39,7 +39,7 @@
 1422208017 d:\budzik\proj\textstat\include\textstat.h
 	"enums.h"
 
-1422208723 source:d:\budzik\proj\textstat\src\filereader.cpp
+1422214412 source:d:\budzik\proj\textstat\src\filereader.cpp
 	"filereader.h"
 	<iostream>
 	<fstream>
@@ -81,7 +81,7 @@
 	"enums.h"
 	<vector>
 
-1422211007 source:d:\budzik\proj\textstat\src\iowindows.cpp
+1422214530 source:d:\budzik\proj\textstat\src\iowindows.cpp
 	"iowindows.h"
 	<stdio.h>
 	<conio.h>
@@ -100,16 +100,16 @@
 1422213229 source:d:\budzik\proj\textstat\src\menu.cpp
 	"menu.h"
 
-1422211970 d:\budzik\proj\textstat\include\ioaccess.h
+1422213444 d:\budzik\proj\textstat\include\ioaccess.h
 	<string>
 	"enums.h"
 	<vector>
 
-1422213049 source:d:\budzik\proj\textstat\src\ioaccess.cpp
+1422213572 source:d:\budzik\proj\textstat\src\ioaccess.cpp
 	"ioaccess.h"
 	<stdio.h>
 
-1422208709 source:d:\budzik\proj\textstat\src\analyzerabc.cpp
+1422214298 source:d:\budzik\proj\textstat\src\analyzerabc.cpp
 	"analyzerabc.h"
 	"filereader.h"
 	<iostream>

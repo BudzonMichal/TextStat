@@ -1,6 +1,6 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
-/* Copyright (c) 2015 Micha≥ BudzoÒ. All Rights Reserved.
+/* Copyright (c) 2015 Micha≈Ç Budzo≈Ñ. All Rights Reserved.
  *
  * Licensees are granted free, non-transferable use of the information. NO
  * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
@@ -20,14 +20,13 @@ class Interface
         static err_t getInstance(Interface* instance);
         virtual ~Interface();
 
-        int     routine(string arg);
-       // err_t   item(int number);
+        err_t routine(string arg);
         Command getCmd();
 
     protected:
     private:
         Interface();
-        err_t setImplementation(); //unknown type of passed argument?
+        err_t setImplementation();
 
         static Interface *ins;
         IOAccess         *io = 0;

@@ -51,17 +51,16 @@ err_t IOAccess::print(string str)
     return ERR_OK;
 }
 
-/**@brief Function for printing the std::string.
+/**@brief Function for printing the string under the std::string* pointer.
  *
- * @param[in]  String to be printed.
+ * @param[in]  Pinter to string to be printed.
  *
  * @return     ERR_OK if success, error code otherwise.
  */
-err_t IOAccess::showMenu(const string* txt)
+err_t IOAccess::print(const string* txt)
 {
-    if(txt == 0) ERR_NULL;
+    if(txt == nullptr) ERR_NULL;
 
-    clearScreen();
     print((*txt).c_str());
 
     return ERR_OK;

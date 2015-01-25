@@ -35,6 +35,12 @@ ABCAnalyzer::~ABCAnalyzer()
 {
 }
 
+/**@brief Function to analyze a text.
+ *
+ * @param[in] filename Name of file to analyze.
+ *
+ * @return ERR_OK if success, error code otherwise.
+ */
 err_t ABCAnalyzer::analyze(string filename)
 {
     FileReader fr;
@@ -46,7 +52,7 @@ err_t ABCAnalyzer::analyze(string filename)
     int        length;
 
     if( fr.load(filename) != ERR_OK){
-        result = "Nie znaleziono pliku\n";
+        result = "No file found\n";
         return ERR_FAULT;
     }
 
@@ -70,16 +76,20 @@ err_t ABCAnalyzer::analyze(string filename)
         }
     }
 
-    result =  "Analiza pliku " + filename + ":\n\n";
-    result += "ilosc znakow: " + to_string(length);
-    result += "\nilosc lini: " + to_string(line_num);
-    result += "\nwystapienia A: " + to_string(a_num);
-    result += "\nwystapienia B: " + to_string(b_num);
-    result += "\nwystapienia C: " + to_string(c_num);
+    result =  "Analysis of file: " + filename + ":\n\n";
+    result += "Characters number: " + to_string(length);
+    result += "\nLines number: " + to_string(line_num);
+    result += "\nOccurrences of A: " + to_string(a_num);
+    result += "\nOccurrences of B: " + to_string(b_num);
+    result += "\nOccurrences of C: " + to_string(c_num);
 
     return ERR_OK;
 }
 
+/**@brief Function to return the analysis result.
+ *
+ * @return Analysis result.
+ */
 string ABCAnalyzer::getResult()
 {
     return result;

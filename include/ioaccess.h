@@ -25,7 +25,7 @@ class IOAccess
         virtual string  input()                   = 0;
         err_t   print(int value);
         err_t   print(string str);
-        err_t   showMenu(const string* str);
+        err_t   print(const string* str);
     protected:
         virtual void    moveCursor(int x)         = 0;
     private:

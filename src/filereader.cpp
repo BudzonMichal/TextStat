@@ -26,7 +26,7 @@ err_t FileReader::load(string filename)
     ofstream myfile;
     myfile.open (filename.c_str(), ios::in);
 
-    if(!myfile.is_open()) return ERR_FAULT;
+    if(!myfile.is_open()) return ERR_FAULT; // check if file exist
     myfile.close();
 
     text.clear();

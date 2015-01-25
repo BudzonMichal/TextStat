@@ -17,7 +17,7 @@ Menu::Menu()
 
     menuText[FILE_MENU].push_back("Pass filename:");
 
-    menuText[INFO_MENU].push_back("Program destined to generate text's statistics");
+    menuText[INFO_MENU].push_back("Program destined to generate text statistics.\n Navigate using arrows, enter and escape to go back.\n To get file statistic enter 'Set file' and pass file name with extension\n and confirm by pressing enter. Now, enter 'Statistic'.");
 
     returnMain();
 }
@@ -40,7 +40,7 @@ err_t Menu::returnMain()
     return ERR_OK;
 }
 
-/**@brief Function for updating menu state.
+/**@brief Function for updating menu state depending which button was pressed.
  *
  * @param[in]   button  Pressed button.
  *
@@ -68,7 +68,7 @@ err_t Menu::updateMenu(key_e button)
     return ERR_OK;
 }
 
-/**@brief Function for getting current menu text to print.
+/**@brief Function for generating and returning current menu text to print.
  *
  * @return      Menu text to be printed.
  */

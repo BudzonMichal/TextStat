@@ -36,13 +36,13 @@ err_t TextStat::start()
     if(allocate() != ERR_OK) return ERR_MEMORY;
 
     while(1){
-      ui->routine(res);
+      ui->routine(res); // wait for user action (press button & update the screen)
 
-      if(ui->getCmd().type == CMD_ANALYZE){
+      if(ui->getCmd().type == CMD_ANALYZE){ // if result of user action was to analyze a file...
         an->analyze(ui->getCmd().arg.str);
         res = an->getResult();
       }
-      if(ui->getCmd().type == CMD_EXIT){
+      if(ui->getCmd().type == CMD_EXIT){ // if result of user action was to exit
         break;
       }
     }

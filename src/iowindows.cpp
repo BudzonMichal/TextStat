@@ -1,4 +1,4 @@
-/* Copyright (c) 2015 Micha≥ BudzoÒ. All Rights Reserved.
+/* Copyright (c) 2015 Micha≈Ç Budzo≈Ñ. All Rights Reserved.
  *
  * Licensees are granted free, non-transferable use of the information. NO
  * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
@@ -10,8 +10,7 @@
 #include <windows.h>
 #include <stdlib.h>
 
-#define INPUT_BUFF_SIZE 56
-
+#define INPUT_BUFF_SIZE 56 // maximum number of characters passed by user
 
 /**@brief Constructor.
  */
@@ -98,9 +97,9 @@ string IOWindows::input()
         if(key == KEY_ESCAPE) return ""; // discard
         if(key == KEY_ENTER) return string(input);  // accept
         if(key == KEY_BACKSPACE && i > 0){
-            moveCursor(-1);
-            printf(" ");
-            moveCursor(-1);
+            moveCursor(-1); // move cursor back
+            printf(" "); // clear the character
+            moveCursor(-1); // move back again
             input[i] = 0;
             --i;
         }
