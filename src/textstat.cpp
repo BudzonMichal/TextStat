@@ -1,21 +1,32 @@
+/* Copyright (c) 2015 Michał Budzoń. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 #include <new>
 #include <iostream>
 #include "textstat.h"
 #include "interface.h"
 #include "analyzerabc.h"
 
+/**@brief Constructor.
+ */
 TextStat::TextStat()
 {
-
 }
 
+/**@brief Destructor.
+ */
 TextStat::~TextStat()
 {
     deallocate();
 }
 
-// Lazy Constructor
-
+/**@brief Function for starting text statistics program.
+ *
+ * @return      ERR_OK on successful exit from program, error code otherwise.
+ */
 err_t TextStat::start()
 {
     err_t  err = ERR_OK;
@@ -27,16 +38,22 @@ err_t TextStat::start()
     while(1){
       ui->routine(res);
 
-      if(ui->getCmd().type == CMD_OPEN){
+      if(ui->getCmd().type == CMD_ANALYZE){
         an->analyze(ui->getCmd().arg.str);
         res = an->getResult();
+      }
+      if(ui->getCmd().type == CMD_EXIT){
+        break;
       }
     }
 
     return err;
 }
 
-/******************************** PRIVATE FUNCTIONS ********************************/
+/**@brief Function for deallocating memory.
+ *
+ * @return      ERR_OK when successfully deallocated, error code otherwise.
+ */
 err_t TextStat::deallocate()
 {
     delete ui;
@@ -47,6 +64,10 @@ err_t TextStat::deallocate()
     return ERR_OK;
 }
 
+/**@brief Function for allocating memory.
+ *
+ * @return      ERR_OK when successfully allocated, error code otherwise.
+ */
 err_t TextStat::allocate()
 {
     err_t err = ERR_OK;
@@ -62,8 +83,14 @@ err_t TextStat::allocate()
     return ERR_OK;
 }
 
+/**@brief Function for setting the analyzer instance.
+ *
+ * @return      ERR_OK if analyzer established, error code otherwise.
+ */
 err_t TextStat::setAnalyzer(Analyzer* analyzer)
 {
     if(an != 0) delete an;
     an = analyzer;
+
+    return ERR_OK;
 }

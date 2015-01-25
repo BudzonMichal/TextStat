@@ -1,17 +1,33 @@
-#include "ioaccess.h"
+/* Copyright (c) 2015 Micha³ Budzoñ. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 
+#include "ioaccess.h"
 #include <stdio.h>
 
+
+/**@brief Constructor.
+ */
 IOAccess::IOAccess()
 {
-    //ctor
 }
 
+
+/**@brief Destructor.
+ */
 IOAccess::~IOAccess()
 {
-    //dtor
 }
 
+/**@brief Function for printing the integer value.
+ *
+ * @param[in]  Ineger to be printed.
+ *
+ * @return     ERR_OK if success, error code otherwise.
+ */
 err_t IOAccess::print(int value)
 {
     char table[16];
@@ -21,6 +37,12 @@ err_t IOAccess::print(int value)
     return ERR_OK;
 }
 
+/**@brief Function for printing the std::string.
+ *
+ * @param[in]  String to be printed.
+ *
+ * @return     ERR_OK if success, error code otherwise.
+ */
 err_t IOAccess::print(string str)
 {
     const char* cs = str.c_str();
@@ -32,8 +54,6 @@ err_t IOAccess::print(string str)
 err_t IOAccess::showMenu(const string* txt)
 {
     clearScreen();
-    if(txt == nullptr) return ERR_NULL;
+    //printf((*txt).c_str());
     print((*txt).c_str());
-
-    return ERR_OK;
 }

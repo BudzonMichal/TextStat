@@ -1,8 +1,20 @@
+/* Copyright (c) 2015 Michał Budzoń. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 #include "analyzerabc.h"
 #include "filereader.h"
 #include <iostream>
 #include <sstream>
 
+/**@brief Function for converting number to string
+ *
+ * @param[in]   Number to convert.
+ *
+ * @return      Converted string.
+ */
 template < class T >
 string to_string( T t )
 {
@@ -11,14 +23,16 @@ string to_string( T t )
     return ss.str();
 }
 
+/**@brief Constructor.
+ */
 ABCAnalyzer::ABCAnalyzer()
 {
-    //ctor
 }
 
+/**@brief Destructor.
+ */
 ABCAnalyzer::~ABCAnalyzer()
 {
-    //dtor
 }
 
 err_t ABCAnalyzer::analyze(string filename)

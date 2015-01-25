@@ -1,3 +1,9 @@
+/* Copyright (c) 2015 Micha³ Budzoñ. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 #ifndef ANALYZER_H
 #define ANALYZER_H
 

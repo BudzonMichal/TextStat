@@ -1,3 +1,9 @@
+/* Copyright (c) 2015 Micha³ Budzoñ. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 #include "iowindows.h"
 #include <stdio.h>
 #include <conio.h>
@@ -6,16 +12,23 @@
 
 #define INPUT_BUFF_SIZE 56
 
+
+/**@brief Constructor.
+ */
 IOWindows::IOWindows()
 {
-    //ctor
 }
 
+/**@brief Destructor.
+ */
 IOWindows::~IOWindows()
 {
-    //dtor
 }
 
+/**@brief Function for moving cursor relatively to the current position.
+ *
+ * @param[in]      Distance to move the cursor.
+ */
 void IOWindows::moveCursor(int x)
 {
     COORD newPos;
@@ -26,6 +39,10 @@ void IOWindows::moveCursor(int x)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), newPos);
 }
 
+/**@brief Function for waiting for button pressing.
+ *
+ * @return     Code of pressed button is returned.
+ */
 key_e IOWindows::checkKey()
 {
     int button = getch();
@@ -43,18 +60,32 @@ key_e IOWindows::checkKey()
     return (key_e)button;
 }
 
+/**@brief Function for waiting for button pressing.
+ *
+ * @param[in]  String to be printed.
+ *
+ * @return     ERR_OK if success, error code otherwise.
+ */
 err_t IOWindows::print(const char* cs)
 {
    printf(cs);
    return ERR_OK;
 }
 
+/**@brief Function for clearing the screen.
+ *
+ * @return     ERR_OK if success, error code otherwise.
+ */
 err_t IOWindows::clearScreen()
 {
    system("cls");
    return ERR_OK;
 }
 
+/**@brief Function for getting the string from standard input.
+ *
+ * @return     Captured string.
+ */
 string IOWindows::input()
 {
    char   input[INPUT_BUFF_SIZE+1];

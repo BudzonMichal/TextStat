@@ -1,3 +1,9 @@
+/* Copyright (c) 2015 Michał Budzoń. All Rights Reserved.
+ *
+ * Licensees are granted free, non-transferable use of the information. NO
+ * WARRANTY of ANY KIND is provided. This heading must NOT be removed from
+ * the file.
+ */
 #include <new>
 #include <iostream>
 #include "interface.h"
@@ -9,21 +15,34 @@ using namespace std;
 
 Interface* Interface::ins = 0;
 
+/**@brief Constructor.
+ */
 Interface::Interface()
 {
     cmd.type = CMD_NONE;
 }
 
+/**@brief Destructor.
+ */
 Interface::~Interface()
 {
-    //dtor
 }
 
+/**@brief Function for getting the command requested by the interface.
+ *
+ * @return Type of command.
+ */
 Command Interface::getCmd()
 {
     return ins->cmd;
 }
 
+/**@brief Function for getting the class' instance. It's singleton design pattern.
+ *
+ * @param[out]   instance  The instance of the class.
+ *
+ * @return      NRF_SUCCESS on successful creation of the instance, error code otherwise.
+ */
 err_t Interface::getInstance(Interface* instance)
 {
     instance = (Interface*)0;
@@ -31,7 +50,7 @@ err_t Interface::getInstance(Interface* instance)
     if(!ins){
         ins = new (std::nothrow)Interface();
         if(ins == 0) return ERR_MEMORY;
-        if(instance->setStrategy() != ERR_OK) return ERR_INTERNAL;
+        if(instance->setImplementation() != ERR_OK) return ERR_INTERNAL;
     }
 
     instance = ins;
@@ -39,10 +58,18 @@ err_t Interface::getInstance(Interface* instance)
     return ERR_OK;
 }
 
-err_t Interface::setStrategy()
+/**@brief Function for setting
+ *
+ * @return      NRF_SUCCESS on successful creation of the instance, error code otherwise.
+ */
+err_t Interface::setImplementation()
 {
     delete ins->io;
-    ins->io = new (std::nothrow)IOWindows(); // you can change strategy here
+#ifdef SYSTEM_WINDOWS
+    ins->io = new (std::nothrow)IOWindows();
+#else
+    ins->io = new (std::nothrow)IOLinux();
+#endif
 
     if(!ins->io) return ERR_MEMORY;
 
@@ -60,7 +87,7 @@ int Interface::routine(string arg)
     if(ins == nullptr) return 1;
 
     if (!no_init){
-        ins->menu.reset();
+        ins->menu.returnMain();
         ins->io->showMenu(ins->menu.getMenuText());
         no_init = true;
     }
@@ -73,13 +100,16 @@ int Interface::routine(string arg)
     current_menu = ins->menu.getType();
 
     switch(current_menu){
+        case EXIT_MENU:
+                if(ins->menu.getPos() == MAIN_EXIT) ins->cmd.type = CMD_EXIT;
+                break;
         case FILE_MENU:
                 file_path = ins->io->input(); // get data from user if necessary
                 ins->menu.returnMain();
                 ins->io->showMenu(ins->menu.getMenuText()); // show updated menu
-                for(int i = 0 ; i < file_path.size() ; ++i) ins->cmd.arg.str[i] = file_path.at(i);
+                for(unsigned int i = 0 ; i < file_path.size() ; ++i) ins->cmd.arg.str[i] = file_path.at(i);
                 ins->cmd.arg.str[file_path.size()] = 0;
-                ins->cmd.type = CMD_OPEN;
+                ins->cmd.type = CMD_ANALYZE;
                 break;
         case STAT_MENU:
                 ins->io->clearScreen();
