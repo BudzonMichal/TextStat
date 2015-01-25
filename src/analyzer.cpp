@@ -9,3 +9,4 @@ Analyzer::~Analyzer()
 {
     //dtor
 }
+

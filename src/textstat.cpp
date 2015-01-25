@@ -2,8 +2,7 @@
 #include <iostream>
 #include "textstat.h"
 #include "interface.h"
-#include "storage.h"
-#include "analyzer.h"
+#include "analyzerabc.h"
 
 TextStat::TextStat()
 {
@@ -19,11 +18,20 @@ TextStat::~TextStat()
 
 err_t TextStat::start()
 {
-    err_t err = ERR_OK;
+    err_t  err = ERR_OK;
+    string res = "no file";
+    string filepath;
 
     if(allocate() != ERR_OK) return ERR_MEMORY;
 
-    ui->loop();
+    while(1){
+      ui->routine(res);
+
+      if(ui->getCmd().type == CMD_OPEN){
+        an->analyze(ui->getCmd().arg.str);
+        res = an->getResult();
+      }
+    }
 
     return err;
 }
@@ -33,8 +41,6 @@ err_t TextStat::deallocate()
 {
     delete ui;
     ui = 0;
-    delete st;
-    st = 0;
     delete an;
     an = 0;
 
@@ -45,14 +51,19 @@ err_t TextStat::allocate()
 {
     err_t err = ERR_OK;
 
-    err = Interface::getInstance(ui); // setStrategy
-    st = new (std::nothrow)Storage();
-    an = new (std::nothrow)Analyzer();
+    err = Interface::getInstance(ui);
+    setAnalyzer(new (std::nothrow)ABCAnalyzer()); // setStrategy
 
-    if(!st || !an || (err != ERR_OK)){
+    if(!an || (err != ERR_OK)){
         deallocate();
         return ERR_MEMORY;
     }
 
     return ERR_OK;
+}
+
+err_t TextStat::setAnalyzer(Analyzer* analyzer)
+{
+    if(an != 0) delete an;
+    an = analyzer;
 }

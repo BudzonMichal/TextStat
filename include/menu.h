@@ -20,16 +20,17 @@ public:
     Menu();
     virtual ~Menu();
     err_t updateMenu(key_e button);
-    const string* getMenu();
+    const string* getMenuText();
     err_t reset();
-    int   getPos(){ return menuPos; }
-    int   getNum(){ return menuNum; }
+    err_t returnMain();
+    int   getPos(){ return menuPos; } // number of cursor position in menu
+    int   getType(){ return menuType; } // number of menu
 
 protected:
     string                   currentMenu;
     std::vector<std::string> menuText[MENU_NUMBER];
     int                      menuPos = 0;
-    int                      menuNum = 0;
+    int                      menuType = 0;
 private:
 };
 

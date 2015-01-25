@@ -1,7 +1,7 @@
 #ifndef PRINTWIN_H
 #define PRINTWIN_H
 
-#include "iostrategy.h"
+#include "ioaccess.h"
 #include "enums.h"
 
 #define IO_ARROW 224
@@ -11,17 +11,19 @@
 #define IO_RIGHT 77
 #define IO_DOWN  80
 
-class IOWindows : public IOStrategy
+class IOWindows : public IOAccess
 {
     public:
         IOWindows();
         virtual ~IOWindows();
 
-        key_e checkKey();
-        err_t print(const char* str);
-        err_t clearScreen();
+        key_e   checkKey();
+        err_t   print(const char* str);
+        err_t   clearScreen();
+        string  input();
     protected:
     private:
+        void    moveCursor(int x);
 };
 
 #endif // PRINTWIN_H

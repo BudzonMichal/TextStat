@@ -43,21 +43,17 @@
 		</Unit>
 		<Unit filename="include/filereader.h" />
 		<Unit filename="include/interface.h" />
-		<Unit filename="include/iostrategy.h" />
+		<Unit filename="include/ioaccess.h" />
 		<Unit filename="include/iowindows.h" />
-		<Unit filename="include/item.h" />
 		<Unit filename="include/menu.h" />
-		<Unit filename="include/storage.h" />
 		<Unit filename="include/textstat.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/analyzer.cpp" />
 		<Unit filename="src/filereader.cpp" />
 		<Unit filename="src/interface.cpp" />
-		<Unit filename="src/iostrategy.cpp" />
+		<Unit filename="src/ioaccess.cpp" />
 		<Unit filename="src/iowindows.cpp" />
-		<Unit filename="src/item.cpp" />
 		<Unit filename="src/menu.cpp" />
-		<Unit filename="src/storage.cpp" />
 		<Unit filename="src/textstat.cpp" />
 		<Extensions>
 			<code_completion />

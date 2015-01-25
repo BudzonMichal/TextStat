@@ -6,6 +6,8 @@ Menu::Menu()
     menuText[MAIN_MENU].push_back("Statistics");
     menuText[MAIN_MENU].push_back("Info");
 
+    menuText[FILE_MENU].push_back("Pass filename:");
+
     reset();
 }
 
@@ -17,13 +19,21 @@ Menu::~Menu()
 err_t Menu::reset()
 {
     menuPos = 0;
-    menuNum = 0;
+    menuType = 0;
+
+    return ERR_OK;
+}
+
+err_t Menu::returnMain()
+{
+    menuPos = 1;
+    menuType = MAIN_MENU;
 }
 
 err_t Menu::updateMenu(key_e button)
 {
     switch(button){
-        case KEY_DOWN: if(menuPos < menuText[menuNum].size()-1) ++menuPos;
+        case KEY_DOWN: if(menuPos < menuText[menuType].size()-1) ++menuPos;
             break;
         case KEY_UP:   if(menuPos > 0) --menuPos;
             break;
@@ -31,30 +41,44 @@ err_t Menu::updateMenu(key_e button)
             break;
         case KEY_RIGHT:
             break;
-        case KEY_ENTER: if(menuNum == MAIN_MENU) menuNum = menuPos + 1;
+        case KEY_ENTER: if(menuType == MAIN_MENU) menuType = menuPos + 1; // menuType==0 is main menu,
             break;
-        case KEY_ESCAPE: menuNum = MAIN_MENU;
+        case KEY_ESCAPE: menuType = MAIN_MENU;
             break;
     }
+
+    return ERR_OK;
 }
 
-const string* Menu::getMenu()
+const string* Menu::getMenuText()
 {
     currentMenu = "";
 
-    if( menuText[menuNum].size() == 0) return nullptr;
+    if( menuText[menuType].size() == 0) return nullptr;
 
     currentMenu = " ________________________________ \n\n";
 
-    for(int i = 0 ; i < menuText[menuNum].size() ; ++i){
-        currentMenu += "\t";
-        if(i == menuPos) currentMenu += "-> ";
-        else currentMenu += "   ";
-        currentMenu += menuText[menuNum].at(i);
-        currentMenu += "\n";
-    }
+    switch(menuType){
+        case MAIN_MENU:
+                        for(int i = 0 ; i < menuText[menuType].size() ; ++i){
+                            currentMenu += "\t";
+                            if((i == menuPos) && (menuType == MAIN_MENU)) currentMenu += "-> ";
+                            else currentMenu += "   ";
+                            currentMenu += menuText[menuType].at(i);
+                            currentMenu += "\n";
+                        }
+                        currentMenu += " ________________________________ \n";
+                        break;
+        case FILE_MENU: currentMenu += " \tCHOOSE FILE TO ANALYSE \n";
+                        currentMenu += " ________________________________ \n\n";
+                        currentMenu += "\tfilename: ";
 
-    currentMenu += " ________________________________ \n";
+                        break;
+        case STAT_MENU:
+                        break;
+        case INFO_MENU:
+                        break;
+    }
 
     return &currentMenu;
 }

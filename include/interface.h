@@ -7,7 +7,7 @@
 #include <vector>
 
 class Interface;
-class IOStrategy;
+class IOAccess;
 
 class Interface
 {
@@ -15,8 +15,9 @@ class Interface
         static err_t getInstance(Interface* instance);
         virtual ~Interface();
 
-        int   loop();
-        err_t item(int number);
+        int     routine(string arg);
+       // err_t   item(int number);
+        Command getCmd();
 
     protected:
     private:
@@ -24,8 +25,9 @@ class Interface
         err_t setStrategy(); //unknown type of passed argument?
 
         static Interface *ins;
-        IOStrategy       *io = 0;
+        IOAccess         *io = 0;
         Menu             menu;
+        Command          cmd;
 };
 
 #endif // INTERFACE_H
